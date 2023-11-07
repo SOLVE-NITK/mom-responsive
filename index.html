@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SOLVE - Mechanics of Machines Lab - Universal Joint Mechanism</title>
+    <title>SOLVE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -32,18 +32,22 @@
       type="text/javascript"
       src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"
     ></script>
-   <!--<script defer src="js/script.js"></script>--> 
-   <script type="text/javascript" src= "js/MOMscript.js"></script>
-   <script defer src="js/new-script.js"></script>
+
+    <!-- <script defer src="js/script.js"></script> -->
+    <script defer src="js/MOMscript.js"></script>
+    <script defer src="js/new-script.js"></script>
+  
+
+
+
   </head>
   <body onload="editcss();startsim();varinit();">
-
     <div class="title-div-container">
       <div class="title-div">
         <div class="logo-div">
           <a href="#"><img src="images/nitk.svg" alt="Logo" class="logo" /></a>
         </div>
-        <h1>Universal Joint</h1>
+        <h1>Scotch Yoke Mechanism</h1>
       </div>
     </div>
     <div class="container">
@@ -121,50 +125,45 @@
             </div>
             
             <div class="canvas__div">
-
-              <div  id="commentboxleft" style="position:absolute;  bottom:10px; font-family:verdana; "  ></div>
-              <div id="commentboxright" style="position:absolute;  bottom:10px; font-family:verdana; "></div>
-             
+            
+               
               <div id="canvas-container">
-                <canvas id="simscreen" height="450px" width="550px" class="canvas"></canvas>
+                <canvas id="simscreen" height="430px" width="550px"class="canvas"></canvas>
+                <div id="commentboxleft"></div>
+                <div id="commentboxright"></div>
               </div>
-                <!-- <div class="graph-div display-hide">
-                  <canvas id="graphscreen1" class="canvas"></canvas> 
-                </div> 
-                 <div class="graph-div display-hide">
-                  <canvas id="graphscreen2" class="canvas"></canvas>  
-                </div> -->
-                
+              <!-- <div class="graph-div display-hide">
+                <canvas id="graphscreen1" class="canvas"></canvas>
+              </div>
+              <div class="graph-div display-hide">
+                <canvas id="graphscreen2" class="canvas"></canvas>
+              </div> -->
             </div>
           </div>
-          
           <div id="variables" class="main__task-div">
             <div class="settings-sections">
               <h3 class="task-title">Variables</h3>
                 <div class="variables-sections">
 
-                  <div class="var-div">
-                    
-                    <label for="betaspinner">&beta; (&deg;)</label>
-                    <input class="var-spinner" id="betaspinner" name="value" />
-                    <div class="var-slider" id="betaslider"></div>
-                  </div>
-
-                  <div class="var-div">
-                    <label for="thetaspinner">&theta; (&deg;)</label>
-                    <input class="var-spinner" id="thetaspinner" name="value" />
-                    <div class="var-slider" id="thetaslider"></div>
-                  </div>
-
-                  <div class="var-div">
-                    <label for="omegaspinner"> &omega; (rad/s)</label>
-                    <input class="var-spinner" id="omegaspinner" name="value" />
-                    <div class="var-slider" id="omegaslider"></div>
+                <div class="var-div">
+                  <label for="lengthSpinner">Crank (mm)</label>
+                  <input class="var-spinner" id="crankspinner" name="value" />
+                  <div class="var-slider" id="crankslider"></div>
                 </div>
-                
+                <div class="var-div">
+                  <label for="dampSpinner">&theta; (&deg;)</label>
+                  <input class="var-spinner" id="thetaspinner" name="value" />
+                  <div class="var-slider" id="thetaslider"></div>
+                </div>
+                <div class="var-div">
+                  <label for="massSpinner">&omega; (rad/s) </label>
+                  <input class="var-spinner" id="omegaspinner" name="value" />
+                  <div class="var-slider" id="omegaslider"></div>
+                </div>
               </div>
             </div>
           </div>
+
           <div class="usercheck" hidden>
             <input hidden type="checkbox" id="graphPlot" ></input> 
             </div>
@@ -174,16 +173,31 @@
               <div class="settings-sections">
                 <div class="control-sections">
 
-                 
-                <img id="rotationbutton" style="width: 40px;" onclick="rotstate()" src="images/bluecwdull.png" />
-                <img id="playpausebutton" style="width:40px;" onclick="simstate()" src="./images/blueplaydull.svg" alt="" />
+                 <button style="width:30%;">Add to table</button>
+			
+            <img id="playpausebutton" style="width:40px;" onclick="simstate()" src="./images/blueplaydull.svg" alt="" />
+                <img id="graphbutton" style="width:40px;" onclick="plotgraph()" src="./images/graphbutton.svg" alt="" />
                 
-         
+                 
                 </div>
               </div>
           </div> -->
 
-          
+          <!-- <div id="comments" class="main__task-div">
+            <h3 class="task-title">Results</h3>
+              <div class="settings-sections">
+                <div class="control-sections">
+
+                  <p id="p1">m = <span id="mass"></span></p>
+                  <p id="p2">k = <span id="k"></span></p>
+                  <p id="p3">c = <sapn id="c"></span></p>
+                    <div id="omegavalues">
+                      <p>&#969;<sub>n</sub> = <span id="wn"></span></p>
+                      <p>&#969;<sub>d</sub> = <span id="wd"></span></p> 
+                    </div>
+                </div>
+              </div>
+          </div> -->
           <div class="main__task-div footer">
             <p>Copyright © SOLVE The Virtual Lab @ NITK Surathkal</p>
           </div>
